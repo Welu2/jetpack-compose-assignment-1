@@ -22,6 +22,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpack_compose_assignment_1.ui.theme.Jetpackcomposeassignment1Theme
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.compose.foundation.shape.RoundedCornerShape
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -117,6 +119,8 @@ fun CourseCard(course: Course, modifier: Modifier = Modifier) {
 
     Surface(
         color = MaterialTheme.colorScheme.surfaceVariant,
+        shape = RoundedCornerShape(12.dp), // Rounded corners
+        tonalElevation = 2.dp,
         modifier = modifier
             .padding(horizontal = 8.dp, vertical = 4.dp)
             .fillMaxWidth()
@@ -124,8 +128,8 @@ fun CourseCard(course: Course, modifier: Modifier = Modifier) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Column(modifier = Modifier.weight(1f)) {
-                    Text(text = course.title, style = MaterialTheme.typography.titleMedium)
-                    Text(text = "${course.code} - ${course.creditHours} Credit Hours", style = MaterialTheme.typography.bodyMedium)
+                    Text(text = course.title, style = MaterialTheme.typography.titleLarge)
+                    Text(text = "${course.code} - ${course.creditHours} Credit Hours", style = MaterialTheme.typography.bodyLarge)
                 }
                 IconButton(onClick = { expanded = !expanded }) {
                     Icon(
